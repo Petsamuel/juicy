@@ -7,37 +7,42 @@ import { SharedBackground, SharedImage } from "./Data";
 export const Card = () => {
   const [active, setActive] = useState<string>();
   const [, setActiveImage] = useState<string>();
+  const [num, setNum] = useState<number>();
 
   const navigate = useNavigate();
 
   return (
-    <div className=" flex flex-wrap  justify-center items-center my-auto mx-auto   rounded-3xl bg-white shadow-lg ">
+    <motion.div
+      layout
+      className=" flex flex-wrap items-center w-full justify-between "
+    >
       <LayoutGroup>
         {Smoothies.map((val, index) => (
           <SharedBackground
-            // layoutId={`val-${val.id}`}
+            layoutId={`${num !== index ? null : `sharedBg-${val.id}`}`}
             isExpanded={false}
             key={val.id}
-            className={`cursor-pointer p-6 lg:w-[15dvw] transition-all duration-300 ease-in-out ${
+            className={`cursor-pointer p-[3rem]  transition-all duration-300 ease-in-out flex  h-[100dvh]   ${
               active === val.id && " text-white"
             }  ${
               val.name === "green smoothie" && active === val.id
-                ? "bg-[#b1c861] lg:rounded-l-3xl lg:rounded-tr-none rounded-t-3xl"
+                ? "bg-[#b1c861] "
                 : val.name === "berry smoothie" && active === val.id
                 ? "bg-[#c195b8]"
                 : val.name === "orange smoothie" && active === val.id
                 ? "bg-[#dfa91b]"
                 : val.name === "coffee milk" && active === val.id
-                ? "bg-[#c7a25e] lg:rounded-r-3xl rounded-b-3xl lg:rounded-bl-none"
+                ? "bg-[#c7a25e] "
                 : ""
             }`}
             handleClick={() => {
-              setActive(val.id);
               setActiveImage(val.image);
+              setActive(active === val.id ? "" : val.id);
+              setNum(index);
             }}
           >
             {val.name && (
-              <div className=" justify-center flex flex-col items-center p-6">
+              <div className=" justify-center flex flex-col items-center p-6 ">
                 <div className="my-5">
                   {active === val.id ? (
                     <SharedImage
@@ -47,7 +52,7 @@ export const Card = () => {
                     />
                   ) : (
                     <span
-                      className={` ${
+                      className={` text-[${val.color}] ${
                         val.name === "green smoothie"
                           ? "text-[#b1c861]"
                           : val.name === "berry smoothie"
@@ -63,7 +68,7 @@ export const Card = () => {
                 </div>
                 <motion.div
                   layout
-                  className={`font-extrabold capitalize    ${
+                  className={`font-extrabold capitalize w-max    ${
                     val.id === active && "-mt-6"
                   }`}
                 >
@@ -74,7 +79,7 @@ export const Card = () => {
                     active === val.id && " text-white"
                   }  text-sm capitalize`}
                 >
-                  <p>{val.description}</p>
+                  <p className="w-max">{val.description}</p>
                 </div>
                 <div className="mt-3">
                   <input
@@ -91,6 +96,6 @@ export const Card = () => {
           </SharedBackground>
         ))}
       </LayoutGroup>
-    </div>
+    </motion.div>
   );
 };

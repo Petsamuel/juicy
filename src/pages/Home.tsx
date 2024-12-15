@@ -1,14 +1,14 @@
 import { Card } from "../components/Cards";
-import { pageVariants } from "../components/Data";
 import { motion } from "framer-motion";
+import { HomeVariant } from "../components/Data";
 export const Home = () => {
   return (
     <motion.div
-      variants={pageVariants}
+      variants={HomeVariant}
       initial="initial"
       animate="animate"
       exit="exit"
-      className="bg-gray-100  w-full lg:h-[100dvh] mx-auto flex"
+      className="w-full"
     >
       <Card />
     </motion.div>

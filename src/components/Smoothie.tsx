@@ -7,23 +7,27 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 type SmoothieProps = {
-  name: string;
-  image: string;
-  description: string;
-  id: string;
+  name?: string;
+  image?: string;
+  description?: string;
+  id?: string;
+  color?: string;
+  color2?: string;
 };
 export const Smoothie = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [currentPath, setCurrentPath] = useState<string>();
-  const [currentImage, setCurrentImage] = useState<SmoothieProps>();
+  const [currentProduct, setcurrentProduct] = useState<SmoothieProps>();
+  const [currentSize, setCurrentSize] = useState<number>(0);
+  console.log(currentSize);
 
   useEffect(() => {
     setCurrentPath(location?.pathname?.split("/", 3).pop());
 
     Smoothies.filter((val) => {
       if (val.id == currentPath) {
-        setCurrentImage(val);
+        setcurrentProduct(val);
       }
     });
   }, [currentPath, location?.pathname]);
@@ -34,49 +38,62 @@ export const Smoothie = () => {
       initial="initial"
       animate="animate"
       exit="exit"
+      className="lg:overflow-hidden flex "
+      layout
     >
       <LayoutGroup>
         <SharedBackground
-          layoutId={`val-${currentImage?.id}`}
-          isExpanded
-          className2={`h-screen ${
-            currentImage?.name === "green smoothie"
-              ? "bg-[#b1c861] "
-              : currentImage?.name === "berry smoothie"
-              ? "bg-[#c195b8]"
-              : currentImage?.name === "orange smoothie"
-              ? "bg-[#dfa91b]"
-              : currentImage?.name === "coffee milk"
-              ? "bg-[#c7a25e] "
-              : ""
-          }`}
+          layoutId={`sharedBg-${currentProduct?.id}`}
+          isExpanded={true}
+          className2={`lg:h-[100vh] w-[100vw] z-10 bg-[${currentProduct?.color}] `}
         >
           <Header />
           <div className="justify-center flex mt-[20dvh] relative items-center ">
-            <div className="relative flex items-center justify-center w-screen">
-              <div>
-                <p className="text-[15dvw] font-extrabold">JUICY</p>
-              </div>
-              <motion.div className="absolute">
+            <div className="relative flex items-center justify-center w-screen lg:flex-row flex-col">
+              <motion.div className="relative">
+                <p className="text-9xl lg:text-[13rem] font-extrabold text-white">
+                  JUICY
+                </p>
+
                 <SharedImage
-                  imageUrl={currentImage?.image}
+                  imageUrl={currentProduct?.image}
                   isExpanded
-                  layoutId={`image-${currentImage?.id}`}
+                  layoutId={`image-${currentProduct?.id}`}
+                  className=" h-auto cursor-pointer absolute inset-0 lg:-top-20"
+                  handleClick={() => navigate(-1)}
                 />
               </motion.div>
-              <div className="absolute end-[25dvh]">dfhjjhbsdjhbsdhbsjd</div>
-              <div className="absolute start-[25dvh] mt-[50vh] flex items-end">
-                <div className="flex flex-col">
+              <div className="absolute end-0 mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center">
+                {["small", "medium", "large"].map((val, index) => (
+                  <div
+                    key={index}
+                    className={`cursor-pointer rounded-full w-[4.5rem] h-[4.5rem] flex items-center capitalize ${
+                      index === currentSize
+                        ? "bg-white"
+                        : `${currentProduct?.color2} text-white`
+                    }  
+                        
+                     `}
+                    onClick={() => setCurrentSize(index)}
+                  >
+                    <div className={`text-xs text-center w-full`}>
+                      <p> {val}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="lg:absolute start-[25dvh] mt-[50vh] flex items-end w-48">
+                <div className="flex flex-col text-white">
                   <h1 className="text-2xl font-bold capitalize">
-                    {currentImage?.name}
+                    {currentProduct?.name}
                   </h1>
-                  <p className="leading-4xl">{currentImage?.description}</p>
+                  <p className="leading-4xl">{currentProduct?.description}</p>
 
                   <input
                     onClick={() => navigate(-1)}
                     type="button"
                     value="Go back"
-                    className=" cursor-pointer bg-transparent rounded-full ring-2 ring-white text-center mt-4 p-2 items-center"
+                    className="w-[8rem] cursor-pointer bg-white rounded-full text-black text-center mt-4 p-2 items-center"
                   />
                 </div>
               </div>
