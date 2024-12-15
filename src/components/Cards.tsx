@@ -13,7 +13,7 @@ export const Card = () => {
   return (
     <motion.div
       layout
-      className=" flex flex-wrap items-center w-full justify-between lg:h-screen"
+      className=" lg:flex lg:flex-wrap items-center w-screen lg:justify-between lg:h-screen justify-center"
     >
       <LayoutGroup>
         {Smoothies.map((val, index) => (
@@ -39,7 +39,7 @@ export const Card = () => {
             }}
           >
             {val.name && (
-              <div className=" justify-center flex flex-col items-center p-6 ">
+              <div className=" justify-center flex flex-col items-center p-6 w-full">
                 <div className="my-5">
                   {active === val.id ? (
                     <SharedImage

@@ -39,7 +39,7 @@ export const Smoothie = () => {
       <LayoutGroup>
         <SharedBackground
           isExpanded={true}
-          className2={`h-dvh w-full z-10 bg-[${currentProduct?.color}] `}
+          className2={`lg:h-dvh h-fit pb-[2rem] w-full z-10 bg-[${currentProduct?.color}] `}
         >
           <Header />
           <div className="justify-center flex lg:mt-[20dvh] relative items-center my-[8rem]">
@@ -91,14 +91,14 @@ export const Smoothie = () => {
                     {currentProduct?.description}
                   </motion.p>
 
-                  <div className="mt-3 flex lg:justify-start justify-center w-full">
+                  <div className="mt-3 flex lg:justify-start justify-center w-full lg:flex-row gap-4 flex-col items-center">
                     <input
                       onClick={() => navigate(-1)}
                       type="button"
                       value="Add to Cart"
                       className="w-[8rem] cursor-pointer bg-white rounded-full text-black text-center mt-4 p-2 items-center flex justify-center lg:justify-start"
                     />
-                    <motion.div className="lg:absolute right-[-65dvw] bottom-0">
+                    <motion.div className="lg:absolute right-[-65dvw] bottom-0 mt-4 lg:mt-0">
                       <ul
                         className={`flex gap-4 text-2xl text-white items-center hover:text-[${currentProduct?.color2}]`}
                       >
