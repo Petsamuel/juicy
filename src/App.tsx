@@ -3,7 +3,8 @@ import { Smoothie } from "./components/Smoothie";
 import { Home } from "./pages/Home";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import {swiperTransitionVariants} from "./components/Variants"
+import { swiperTransitionVariants } from "./components/Varients";
+
 
 const AnimatedRoute = () => {
   const location = useLocation();
