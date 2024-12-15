@@ -13,12 +13,11 @@ export const Card = () => {
   return (
     <motion.div
       layout
-      className=" flex flex-wrap items-center w-full justify-between "
+      className=" flex flex-wrap items-center w-full justify-between lg:h-screen"
     >
       <LayoutGroup>
         {Smoothies.map((val, index) => (
           <SharedBackground
-            layoutId={val.id === active ? `sharedBg-${val.id}` : undefined}
             isExpanded={false}
             key={val.id}
             className={`cursor-pointer p-[3rem]  transition-all duration-300 ease-in-out flex  h-[100dvh]   ${

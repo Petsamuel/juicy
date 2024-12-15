@@ -1,9 +1,13 @@
 import { Header } from "./Header";
 import { SharedImage, Smoothies, SharedBackground } from "./Data";
 import { motion, LayoutGroup } from "framer-motion";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { swiperTransitionVariants } from "./varients";
+import {
+  TbBrandGithub,
+  TbBrandInstagram,
+  TbBrandLinkedin,
+} from "react-icons/tb";
 
 type SmoothieProps = {
   name?: string;
@@ -31,24 +35,19 @@ export const Smoothie = () => {
   }, [currentPath, location?.pathname]);
 
   return (
-    <motion.div
-      key={location.pathname}
-      custom={{ direction: 1 }}
-      variants={swiperTransitionVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
+    <motion.div>
       <LayoutGroup>
         <SharedBackground
-          layoutId={`sharedBg-${currentProduct?.id}`}
           isExpanded={true}
-          className2={`lg:h-[100vh] w-[100vw] z-10 bg-[${currentProduct?.color}] `}
+          className2={`h-dvh w-full z-10 bg-[${currentProduct?.color}] `}
         >
           <Header />
-          <div className="justify-center flex mt-[20dvh] relative items-center ">
-            <div className="relative flex items-center justify-center w-screen lg:flex-row flex-col">
-              <motion.div className="relative">
+          <div className="justify-center flex lg:mt-[20dvh] relative items-center my-[8rem]">
+            <div className="relative flex items-center justify-center w-full lg:flex-row flex-col lg:gap-0 ">
+              <motion.div
+                layout
+                className="relative mt-[5rem] mb-[2rem] lg:md:my-0"
+              >
                 <p className="text-9xl lg:text-[13rem] font-extrabold text-white">
                   JUICY
                 </p>
@@ -57,11 +56,14 @@ export const Smoothie = () => {
                   imageUrl={currentProduct?.image}
                   isExpanded
                   layoutId={`image-${currentProduct?.id}`}
-                  className=" h-auto cursor-pointer absolute inset-0 lg:-top-20"
+                  className=" h-auto cursor-pointer absolute inset-0 -top-20"
                   handleClick={() => navigate(-1)}
                 />
               </motion.div>
-              <div className="absolute end-0 mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center">
+              <motion.div
+                layout
+                className="lg:absolute end-0 lg:mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center w-full lg:md:w-fit mt-10"
+              >
                 {["small", "medium", "large"].map((val, index) => (
                   <div
                     key={index}
@@ -79,20 +81,45 @@ export const Smoothie = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-              <div className="lg:absolute start-[25dvh] mt-[50vh] flex items-end w-48">
-                <div className="flex flex-col text-white">
-                  <h1 className="text-2xl font-bold capitalize">
+              </motion.div>
+              <div className="lg:absolute start-[25dvh] lg:mt-[50vh] flex lg:items-end lg:w-48 w-full mt-10 justify-center lg:justify-start text-center lg:text-start">
+                <div className="flex flex-col text-white lg:text-start text-center">
+                  <motion.h1 className="text-2xl font-bold capitalize">
                     {currentProduct?.name}
-                  </h1>
-                  <p className="leading-4xl">{currentProduct?.description}</p>
+                  </motion.h1>
+                  <motion.p className="leading-4xl ">
+                    {currentProduct?.description}
+                  </motion.p>
 
-                  <input
-                    onClick={() => navigate(-1)}
-                    type="button"
-                    value="Go back"
-                    className="w-[8rem] cursor-pointer bg-white rounded-full text-black text-center mt-4 p-2 items-center"
-                  />
+                  <div className="mt-3 flex lg:justify-start justify-center w-full">
+                    <input
+                      onClick={() => navigate(-1)}
+                      type="button"
+                      value="Add to Cart"
+                      className="w-[8rem] cursor-pointer bg-white rounded-full text-black text-center mt-4 p-2 items-center flex justify-center lg:justify-start"
+                    />
+                    <motion.div className="lg:absolute right-[-65dvw] bottom-0">
+                      <ul
+                        className={`flex gap-4 text-2xl text-white items-center hover:text-[${currentProduct?.color2}]`}
+                      >
+                        <Link
+                          to="https://instagram.com/bieefilled"
+                          className=""
+                        >
+                          <TbBrandInstagram />
+                        </Link>
+                        <Link
+                          to="https://linkedin.com/in/bieefilled"
+                          className=""
+                        >
+                          <TbBrandLinkedin />
+                        </Link>
+                        <Link to="https://github.com/petsamuel" className="">
+                          <TbBrandGithub />
+                        </Link>
+                      </ul>
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </div>

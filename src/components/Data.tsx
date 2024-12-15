@@ -51,23 +51,18 @@ type backgroundProps = {
   layoutId?: string;
 };
 
-
-
 export const SharedBackground = ({
   isExpanded = false,
   children,
   className2,
   className,
   handleClick,
-  layoutId,
+
 }: backgroundProps) => (
   <motion.div
-    layoutId={layoutId}
-    className={`overflow-hidden relative ${
-      isExpanded ? className2 : className
-    }`}
+    
+    className={`relative h-full ${isExpanded ? className2 : className}`}
     onClick={handleClick}
- 
   >
     {children}
   </motion.div>
@@ -89,6 +84,7 @@ export const SharedImage = ({
   handleClick,
 }: SharedImageProps) => (
   <motion.img
+    layout
     whileHover={{ scale: 1.1 }}
     transition={transition}
     layoutId={layoutId}
@@ -99,6 +95,6 @@ export const SharedImage = ({
         : "w-[250px] h-[300px] top-auto left-auto"
     } object-cover ${className}`}
     onClick={handleClick}
-    layout
+
   />
 );
