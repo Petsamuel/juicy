@@ -39,11 +39,11 @@ export const Smoothie = () => {
       <LayoutGroup>
         <SharedBackground
           isExpanded={true}
-          className2={`lg:h-dvh h-fit pb-[2rem] w-full z-10 bg-[${currentProduct?.color}] `}
+          className2={`lg:h-dvh h-fit pb-[2rem] w-screen z-10 bg-[${currentProduct?.color}] `}
         >
           <Header />
           <div className="justify-center flex lg:mt-[20dvh] relative items-center my-[5rem]">
-            <div className="relative flex items-center justify-center w-full lg:flex-row flex-col lg:gap-0 ">
+            <div className="relative flex items-center justify-center w-screen lg:flex-row flex-col lg:gap-0 ">
               <motion.div
                 layout
                 className="relative mt-[5rem] mb-[2rem] lg:md:my-0"
@@ -62,7 +62,7 @@ export const Smoothie = () => {
               </motion.div>
               <motion.div
                 layout
-                className="lg:absolute end-0 lg:mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center w-full lg:md:w-fit mt-[3rem]"
+                className="lg:absolute end-0 lg:mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center w-screen lg:md:w-fit mt-[3rem]"
               >
                 {["small", "medium", "large"].map((val, index) => (
                   <div

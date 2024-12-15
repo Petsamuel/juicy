@@ -13,7 +13,7 @@ export const Card = () => {
   return (
     <motion.div
       layout
-      className=" lg:flex lg:flex-wrap items-center w-screen lg:justify-between lg:h-screen justify-center"
+      className=" lg:flex flex-wrap items-center w-screen lg:justify-between lg:h-screen justify-center"
     >
       <LayoutGroup>
         {Smoothies.map((val, index) => (
