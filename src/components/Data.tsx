@@ -51,64 +51,7 @@ type backgroundProps = {
   layoutId?: string;
 };
 
-export const pageVariants = {
-  initial: {
-    opacity: 0.5, // Start invisible
-    x: "80vw", // Slide in from the right
-    scale: 0.95, // Slight shrink
-  },
-  animate: {
-    opacity: 1, // Fully visible
-    x: 0, // Move to center
-    scale: 1, // Full size
-    transition: {
-      duration: 0.6, // Slower transition
-      ease: [0.22, 1, 0.36, 1], // Custom cubic bezier for smooth easing
-    },
-  },
-  exit: {
-    opacity: 0.9, // Fade out
-    x: "-100vw", // Slide out to the left
-    scale: 0.95, // Slight shrink
-    transition: {
-      duration: 1, // Match entrance duration
-      ease: [0.42, 0, -0.5, 0.96], // Ease-in for smooth fade
-    },
-  },
-};
 
-export const HomeVariant = {
-  initial: {
-    opacity: 0.5, // Start invisible
-    x: "-80vw", // Slide in from the right
-    scale: 0.95, // Slight shrink
-  },
-  animate: {
-    opacity: 1, // Fully visible
-    x: 0, // Move to center
-    scale: 1, // Full size
-    transition: {
-      duration: 0.6, // Slower transition
-      ease: [0.22, 1, 0.36, 1], // Custom cubic bezier for smooth easing
-    },
-  },
-  exit: {
-    opacity: 0.9, // Fade out
-    x: "100vw", // Slide out to the left
-    scale: 0.95, // Slight shrink
-    transition: {
-      duration: 1, // Match entrance duration
-      ease: [0.42, 0, -0.5, 0.96], // Ease-in for smooth fade
-    },
-  },
-};
-
-const backgroundVariants = {
-  initial: { opacity: 0.2 },
-  animate: { opacity: 1 },
-  exit: { opacity: 1 },
-};
-// const transition = { duration: 1.4, ease: [0.6, 0.01, -0.5, 0.96] };
 
 export const SharedBackground = ({
   isExpanded = false,
@@ -124,14 +67,7 @@ export const SharedBackground = ({
       isExpanded ? className2 : className
     }`}
     onClick={handleClick}
-    initial="initial"
-    animate="animate"
-    exit="exit"
-    variants={backgroundVariants}
-    transition={{
-      duration: 2,
-      ease: "easeInOut",
-    }}
+ 
   >
     {children}
   </motion.div>
@@ -163,5 +99,6 @@ export const SharedImage = ({
         : "w-[250px] h-[300px] top-auto left-auto"
     } object-cover ${className}`}
     onClick={handleClick}
+    layout
   />
 );

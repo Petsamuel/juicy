@@ -7,7 +7,6 @@ import { SharedBackground, SharedImage } from "./Data";
 export const Card = () => {
   const [active, setActive] = useState<string>();
   const [, setActiveImage] = useState<string>();
-  const [num, setNum] = useState<number>();
 
   const navigate = useNavigate();
 
@@ -19,7 +18,7 @@ export const Card = () => {
       <LayoutGroup>
         {Smoothies.map((val, index) => (
           <SharedBackground
-            layoutId={`${num !== index ? null : `sharedBg-${val.id}`}`}
+            layoutId={val.id === active ? `sharedBg-${val.id}` : undefined}
             isExpanded={false}
             key={val.id}
             className={`cursor-pointer p-[3rem]  transition-all duration-300 ease-in-out flex  h-[100dvh]   ${
@@ -38,7 +37,6 @@ export const Card = () => {
             handleClick={() => {
               setActiveImage(val.image);
               setActive(active === val.id ? "" : val.id);
-              setNum(index);
             }}
           >
             {val.name && (

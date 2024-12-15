@@ -1,14 +1,16 @@
 import { Card } from "../components/Cards";
 import { motion } from "framer-motion";
-import { HomeVariant } from "../components/Data";
+import { swiperTransitionVariants } from "../components/varients";
+
 export const Home = () => {
   return (
     <motion.div
-      variants={HomeVariant}
+      key={location.pathname}
+      custom={{ direction: -1 }}
+      variants={swiperTransitionVariants}
       initial="initial"
       animate="animate"
       exit="exit"
-      className="w-full"
     >
       <Card />
     </motion.div>

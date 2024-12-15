@@ -1,10 +1,9 @@
 import { Header } from "./Header";
-
-import { SharedImage, Smoothies, SharedBackground, pageVariants } from "./Data";
-// import green from "../assets/image/green.png";
+import { SharedImage, Smoothies, SharedBackground } from "./Data";
 import { motion, LayoutGroup } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { swiperTransitionVariants } from "./varients";
 
 type SmoothieProps = {
   name?: string;
@@ -20,7 +19,6 @@ export const Smoothie = () => {
   const [currentPath, setCurrentPath] = useState<string>();
   const [currentProduct, setcurrentProduct] = useState<SmoothieProps>();
   const [currentSize, setCurrentSize] = useState<number>(0);
-  console.log(currentSize);
 
   useEffect(() => {
     setCurrentPath(location?.pathname?.split("/", 3).pop());
@@ -34,12 +32,12 @@ export const Smoothie = () => {
 
   return (
     <motion.div
-      variants={pageVariants}
+      key={location.pathname}
+      custom={{ direction: 1 }}
+      variants={swiperTransitionVariants}
       initial="initial"
       animate="animate"
       exit="exit"
-      className="lg:overflow-hidden flex "
-      layout
     >
       <LayoutGroup>
         <SharedBackground
