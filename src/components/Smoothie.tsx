@@ -56,7 +56,7 @@ export const Smoothie = () => {
                   imageUrl={currentProduct?.image}
                   isExpanded
                   layoutId={`image-${currentProduct?.id}`}
-                  className=" h-auto cursor-pointer absolute inset-0 -top-20"
+                  className=" h-auto cursor-pointer absolute inset-0 lg:-top-20 top-[-5rem]"
                   handleClick={() => navigate(-1)}
                 />
               </motion.div>
@@ -82,7 +82,7 @@ export const Smoothie = () => {
                   </div>
                 ))}
               </motion.div>
-              <div className="lg:absolute start-[25dvh] lg:mt-[50vh] flex lg:items-end lg:w-48 w-full mt-10 justify-center lg:justify-start text-center lg:text-start">
+              <div className="lg:absolute start-[25dvh] lg:mt-[50vh] flex lg:items-end lg:w-48 w-full mt-5 justify-center lg:justify-start text-center lg:text-start">
                 <div className="flex flex-col text-white lg:text-start text-center">
                   <motion.h1 className="text-2xl font-bold capitalize">
                     {currentProduct?.name}
@@ -117,8 +117,15 @@ export const Smoothie = () => {
                         </Link>
                         <Link to="https://github.com/petsamuel" className="">
                           <TbBrandGithub />
-                        </Link>
+                        </Link>{" "}
+                        
                       </ul>
+                      <Link
+                        to="https://github.com/petsamuel"
+                        className="text-sm mt-4"
+                      >
+                        bieefilled 2024
+                      </Link>
                     </motion.div>
                   </div>
                 </div>
