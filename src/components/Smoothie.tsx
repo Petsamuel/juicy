@@ -42,7 +42,7 @@ export const Smoothie = () => {
           className2={`lg:h-dvh h-fit pb-[2rem] w-full z-10 bg-[${currentProduct?.color}] `}
         >
           <Header />
-          <div className="justify-center flex lg:mt-[20dvh] relative items-center my-[8rem]">
+          <div className="justify-center flex lg:mt-[20dvh] relative items-center my-[5rem]">
             <div className="relative flex items-center justify-center w-full lg:flex-row flex-col lg:gap-0 ">
               <motion.div
                 layout
@@ -62,7 +62,7 @@ export const Smoothie = () => {
               </motion.div>
               <motion.div
                 layout
-                className="lg:absolute end-0 lg:mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center w-full lg:md:w-fit mt-10"
+                className="lg:absolute end-0 lg:mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center w-full lg:md:w-fit mt-[3rem]"
               >
                 {["small", "medium", "large"].map((val, index) => (
                   <div
@@ -88,7 +88,8 @@ export const Smoothie = () => {
                     {currentProduct?.name}
                   </motion.h1>
                   <motion.p className="leading-4xl ">
-                    {currentProduct?.description}
+                    {currentProduct?.description} lorem ipsum dolor sit amet
+                    <p>credit @uiuxzaid</p>
                   </motion.p>
 
                   <div className="mt-3 flex lg:justify-start justify-center w-full lg:flex-row gap-4 flex-col items-center">

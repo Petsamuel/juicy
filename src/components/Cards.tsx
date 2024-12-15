@@ -76,8 +76,8 @@ export const Card = () => {
                     active === val.id && " text-white"
                   }  text-sm capitalize`}
                 >
-                  <p className="w-max">{val.description} lorem lorem ipsum ipsum </p>
-                  <p>credit @uiuxzaid</p>
+                  <p className="w-max">{val.description}</p>
+                  
                 </div>
                 <div className="mt-3">
                   <input

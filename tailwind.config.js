@@ -4,6 +4,7 @@ export default {
   safelist: [
     {
       pattern: /bg-\[\#[a-fA-F0-9]{6}\]/, 
+      
     },
   ],
   theme: {
