@@ -59,7 +59,7 @@ export const SharedBackground = ({
   handleClick,
 }: backgroundProps) => (
   <motion.div
-    className={`relative lg:h-full h-screen ${isExpanded ? className2 : className}`}
+    className={`relative lg:h-full  ${isExpanded ? className2 : className}`}
     onClick={handleClick}
   >
     {children}
