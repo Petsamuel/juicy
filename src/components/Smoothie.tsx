@@ -39,7 +39,7 @@ export const Smoothie = () => {
       <LayoutGroup>
         <SharedBackground
           isExpanded={true}
-          className2={`pb-[2rem] px-4 z-10 bg-[${currentProduct?.color}] `}
+          className2={`pb-[2rem] px-4 z-10 h-full bg-[${currentProduct?.color}] `}
         >
           <Header />
           <div className="justify-center flex lg:my-[10dvh] relative flex-col">
