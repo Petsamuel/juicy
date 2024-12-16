@@ -39,7 +39,7 @@ export const Smoothie = () => {
       <LayoutGroup>
         <SharedBackground
           isExpanded={true}
-          className2={`lg:h-dvh h-screen pb-[2rem] w-screen z-10 bg-[${currentProduct?.color}] `}
+          className2={`lg:h-dvh h-screen pb-[2rem] w-screen px-4 z-10 bg-[${currentProduct?.color}] `}
         >
           <Header />
           <div className="justify-center flex lg:my-[10dvh] relative items-center my-[3rem]">
