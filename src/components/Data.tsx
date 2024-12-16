@@ -89,8 +89,8 @@ export const SharedImage = ({
     src={imageUrl}
     className={`${
       isExpanded
-        ? "lg:w-[50%] lg:h-[60dvh] h-auto w-[45%] top-[25%] lg:top-[1dvh] left-[25%]"
-        : "w-[250px] h-[300px] top-auto left-auto"
+        ? " lg:h-auto h-auto lg:w-[20%] w-[30%] top-[2%] lg:top-[-7dvh] lg:left-[38%] left-[32%]"
+        : "w-[250px] h-auto top-auto left-auto"
     } object-cover ${className}`}
     onClick={handleClick}
   />
