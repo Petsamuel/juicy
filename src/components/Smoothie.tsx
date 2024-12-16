@@ -53,7 +53,7 @@ export const Smoothie = () => {
                   imageUrl={currentProduct?.image}
                   isExpanded
                   layoutId={`image-${currentProduct?.id}`}
-                  className=" h-auto cursor-pointer absolute inset-0 lg:-top-20 top-[-5rem]"
+                  className=" h-auto cursor-pointer absolute inset-0 lg:-top-20 top-[-1rem]"
                   handleClick={() => navigate(-1)}
                 />
               </motion.div>
