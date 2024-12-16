@@ -11,10 +11,7 @@ export const Card = () => {
   const navigate = useNavigate();
 
   return (
-    <motion.div
-      layout
-      className=" lg:flex flex-wrap items-center w-screen lg:justify-between lg:h-screen justify-center"
-    >
+    <motion.div className=" lg:flex flex-wrap items-center w-screen lg:justify-between lg:h-screen justify-center">
       <LayoutGroup>
         {Smoothies.map((val, index) => (
           <SharedBackground
@@ -39,8 +36,8 @@ export const Card = () => {
             }}
           >
             {val.name && (
-              <div className=" justify-center flex flex-col items-center p-6 w-full">
-                <div className="my-5">
+              <motion.div className=" justify-center flex flex-col items-center p-6 w-full">
+                <div className="my-5 flex items-center justify-center">
                   {active === val.id ? (
                     <SharedImage
                       imageUrl={val.image}
@@ -77,7 +74,6 @@ export const Card = () => {
                   }  text-sm capitalize`}
                 >
                   <p className="w-max">{val.description}</p>
-                  
                 </div>
                 <div className="mt-3">
                   <input
@@ -89,7 +85,7 @@ export const Card = () => {
                     onClick={() => navigate(`/smoothie/${val.id}`)}
                   />
                 </div>
-              </div>
+              </motion.div>
             )}
           </SharedBackground>
         ))}

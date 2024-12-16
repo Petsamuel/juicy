@@ -57,11 +57,9 @@ export const SharedBackground = ({
   className2,
   className,
   handleClick,
-
 }: backgroundProps) => (
   <motion.div
-    
-    className={`relative h-full ${isExpanded ? className2 : className}`}
+    className={`relative ${isExpanded ? className2 : className}`}
     onClick={handleClick}
   >
     {children}
@@ -91,10 +89,9 @@ export const SharedImage = ({
     src={imageUrl}
     className={`${
       isExpanded
-        ? "w-[50%] h-[50vh] top-[25%] left-[25%]"
-        : "w-[250px] h-[300px] top-auto left-auto"
+        ? "w-[50%] h-[50vh] top-[25%] lg:top-[-5rem] left-[22dvw] lg:left-[10.5dvw]"
+        : "w-[80%] h-[300px] top-auto left-auto flex justify-center items-center"
     } object-cover ${className}`}
     onClick={handleClick}
-
   />
 );

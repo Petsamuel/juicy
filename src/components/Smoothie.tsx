@@ -35,20 +35,17 @@ export const Smoothie = () => {
   }, [currentPath, location?.pathname]);
 
   return (
-    <motion.div>
+    <div >
       <LayoutGroup>
         <SharedBackground
           isExpanded={true}
-          className2={`lg:h-dvh h-fit pb-[2rem] w-screen z-10 bg-[${currentProduct?.color}] `}
+          className2={`lg:h-dvh h-screen pb-[2rem] w-screen z-10 bg-[${currentProduct?.color}] `}
         >
           <Header />
-          <div className="justify-center flex lg:mt-[20dvh] relative items-center my-[5rem]">
+          <div className="justify-center flex lg:my-[10dvh] relative items-center my-[3rem]">
             <div className="relative flex items-center justify-center w-screen lg:flex-row flex-col lg:gap-0 ">
-              <motion.div
-                layout
-                className="relative mt-[5rem] mb-[2rem] lg:md:my-0"
-              >
-                <p className="text-9xl lg:text-[13rem] font-extrabold text-white">
+              <motion.div layout className="relative mb-[2rem]  lg:md:my-0">
+                <p className="text-[32dvw] lg:text-[15dvw] font-extrabold text-white">
                   JUICY
                 </p>
 
@@ -62,7 +59,7 @@ export const Smoothie = () => {
               </motion.div>
               <motion.div
                 layout
-                className="lg:absolute end-0 lg:mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center w-screen lg:md:w-fit mt-[3rem]"
+                className="lg:absolute end-0 lg:mr-[7rem] flex lg:flex-col flex-row lg:mt-0 gap-3 bottom-0 text-center items-center p-3 justify-center w-screen lg:md:w-fit mt-[1rem]"
               >
                 {["small", "medium", "large"].map((val, index) => (
                   <div
@@ -82,12 +79,12 @@ export const Smoothie = () => {
                   </div>
                 ))}
               </motion.div>
-              <div className="lg:absolute start-[25dvh] lg:mt-[50vh] flex lg:items-end lg:w-48 w-full mt-5 justify-center lg:justify-start text-center lg:text-start">
+              <div className="lg:absolute start-[25dvh] lg:mt-[50vh] flex lg:items-end  mt-5 justify-center lg:justify-start text-center lg:text-start">
                 <div className="flex flex-col text-white lg:text-start text-center">
                   <motion.h1 className="text-2xl font-bold capitalize">
                     {currentProduct?.name}
                   </motion.h1>
-                  <motion.p className="leading-4xl ">
+                  <motion.p className="leading-4xl text-sm">
                     {currentProduct?.description} lorem ipsum dolor sit amet
                     <p>credit @uiuxzaid</p>
                   </motion.p>
@@ -99,7 +96,7 @@ export const Smoothie = () => {
                       value="Add to Cart"
                       className="w-[8rem] cursor-pointer bg-white rounded-full text-black text-center mt-4 p-2 items-center flex justify-center lg:justify-start"
                     />
-                    <motion.div className="lg:absolute right-[-65dvw] bottom-0 mt-4 lg:mt-0">
+                    <motion.div className="lg:absolute right-[-55dvw] bottom-0 mt-4 lg:mt-0">
                       <ul
                         className={`flex gap-4 text-2xl text-white items-center hover:text-[${currentProduct?.color2}]`}
                       >
@@ -118,7 +115,6 @@ export const Smoothie = () => {
                         <Link to="https://github.com/petsamuel" className="">
                           <TbBrandGithub />
                         </Link>{" "}
-                        
                       </ul>
                       <Link
                         to="https://github.com/petsamuel"
@@ -134,6 +130,6 @@ export const Smoothie = () => {
           </div>
         </SharedBackground>
       </LayoutGroup>
-    </motion.div>
+    </div>
   );
 };
